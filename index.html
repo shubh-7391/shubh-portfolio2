@@ -1,221 +1,301 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shubham Akalekar Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
-    body { background: #0d1117; color: #f0f0f0; line-height: 1.6; }
-    @keyframes fadeIn { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-    @keyframes typing { from { width: 0 } to { width: 100% } }
-    @keyframes blink { 50% { border-color: transparent; } }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-10px);
-      }
-      60% {
-        transform: translateY(-5px);
-      }
-    }
-    .section { opacity: 0; animation: fadeIn 1s ease-in-out forwards; }
-    .hero {
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: radial-gradient(circle at top right, #1f2937, #0d1117);
-      color: #ffffff;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      animation: fadeIn 1s ease-in-out 0.5s forwards;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-      border-bottom: 2px solid #ffffff;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-top: 10px;
-      font-weight: 300;
-      overflow: hidden;
-      border-right: 2px solid #e91e63;
-      white-space: nowrap;
-      width: 0;
-      animation: typing 3s steps(40, end) 1s forwards, blink 0.75s step-end infinite;
-      text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
-    }
-    .section-title {
-      font-size: 1.8rem;
-      margin-bottom: 40px;
-      text-transform: uppercase;
-      color: #e91e63;
-    }
-    .videos-section, .thumbnails-section, .skills-section, .contact-section {
-      padding: 60px 20px;
-      text-align: center;
-    }
-    .videos-container { display: block; }
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      background: #000;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-      margin: 20px auto;
-      max-width: 1000px;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 100%;
-    }
-    .thumbnails-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .thumbnail {
-      overflow: hidden;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .thumbnail:hover { transform: scale(1.05); }
-    .thumbnail img { width: 100%; height: auto; display: block; }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 15px;
-      border: 2px solid #e91e63;
-      border-radius: 8px;
-      background: #161b22;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .skill-item:hover {
-      transform: translateY(-5px);
-      background: #e91e63;
-    }
-    .skill-icon {
-      font-size: 1.5rem;
-      color: #e91e63;
-      transition: color 0.3s ease;
-    }
-    .skill-item:hover .skill-icon {
-      color: #ffffff;
-    }
-    .skill-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: #f0f0f0;
-      transition: color 0.3s ease;
-    }
-    .skill-item:hover .skill-name {
-      color: #ffffff;
-    }
-    .contact-info p {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    .contact-info a {
-      color: #e91e63;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    .contact-info a:hover {
-      color: #ff5e9d;
-    }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .hero h2 { font-size: 1.5rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video Editor Portfolio</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@keyframes shine {
+0% {
+background-position: -100% 50%;
+}
+100% {
+background-position: 200% 50%;
+}
+}
+.shine-text {
+background: linear-gradient(120deg, #4FD1C5 20%, #fff 30%, #4FD1C5 40%);
+background-size: 200% auto;
+color: transparent;
+background-clip: text;
+-webkit-background-clip: text;
+animation: shine 3s linear infinite;
+}
+@keyframes glow {
+0% { text-shadow: 0 0 5px rgba(79, 209, 197, 0.3); }
+50% { text-shadow: 0 0 20px rgba(79, 209, 197, 0.7); }
+100% { text-shadow: 0 0 5px rgba(79, 209, 197, 0.3); }
+}
+.glow-text {
+animation: glow 2s infinite;
+}
+.gradient-bg {
+background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+.card-hover {
+transition: transform 0.3s ease;
+}
+.card-hover:hover {
+transform: translateY(-5px);
+}
+.neon-border {
+box-shadow: 0 0 10px rgba(79, 209, 197, 0.3);
+}
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+overflow: hidden;
+}
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#4FD1C5',
+secondary: '#F687B3'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
 </head>
-<body>
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Shubham Akalekar</h1>
-    <h2>Video Editor & Graphic Designer</h2>
-  </section>
-
-  <!-- My Work Title -->
-  <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-top: 160px; color: #ffffff; text-shadow: 0 0 1px #ffffff, 0 0 2px #ffffff;">My Work</h2>
-  <div style="text-align: center; margin-top: 10px;">
-    <i class="fas fa-chevron-down" style="font-size: 24px; color: #ffffff; animation: bounce 2s infinite;"></i>
-  </div>
-
-  <!-- Videos Section -->
-  <section class="videos-section section">
-    <h2 class="section-title">Vertical Videos (Reels)</h2>
-    <div class="videos-container">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/gdXw0Bv92ZI?rel=0" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/yP04Of32Cxg?rel=0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- Thumbnails Section -->
-  <section class="thumbnails-section section">
-    <h2 class="section-title">Thumbnail Designs</h2>
-    <div class="thumbnails-container">
-      <div class="thumbnail"><img src="1.png" alt="Thumbnail 1"></div>
-      <div class="thumbnail"><img src="2.png" alt="Thumbnail 2"></div>
-      <div class="thumbnail"><img src="3.png" alt="Thumbnail 3"></div>
-      <div class="thumbnail"><img src="4.png" alt="Thumbnail 4"></div>
-    </div>
-  </section>
-
-  <!-- Skills & Tools Section -->
-  <section class="skills-section section">
-    <h2 class="section-title">Skills & Tools</h2>
-    <div class="skills-grid">
-      <div class="skill-item"><i class="skill-icon fas fa-video"></i><span class="skill-name">DaVinci Resolve</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-image"></i><span class="skill-name">Photoshop</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-robot"></i><span class="skill-name">AI Tools</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-palette"></i><span class="skill-name">Color Grading</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-font"></i><span class="skill-name">Typography Editing</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-music"></i><span class="skill-name">Sound Design</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-cogs"></i><span class="skill-name">Motion Graphics Editing</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-random"></i><span class="skill-name">Video Transitions</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-pencil-alt"></i><span class="skill-name">Storyboarding</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-share-alt"></i><span class="skill-name">Social Media Optimization</span></div>
-      <div class="skill-item"><i class="skill-icon fas fa-thumbs-up"></i><span class="skill-name">Thumbnail Design</span></div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section section">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:akalekarshubham@gmail.com">akalekarshubham@gmail.com</a></p>
-      <p>Instagram: <a href="https://instagram.com/shubham.edits07" target="_blank">@shubham.edits07</a></p>
-    </div>
-  </section>
+<body class="bg-[#1a1a2e] text-white font-['Montserrat']">
+<nav class="fixed top-0 w-full bg-[#16213e]/90 backdrop-blur-sm z-50 py-4">
+<div class="container mx-auto px-4 flex justify-between items-center">
+<div class="flex items-center space-x-6">
+<a href="#hero" class="hover:text-primary transition-colors">Home</a>
+<a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
+<a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+</div>
+<a href="https://www.instagram.com/shubham.edits07" target="_blank" class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<i class="ri-instagram-line text-xl"></i>
+</a>
+<a href="https://www.youtube.com/@shubh_videoeditor" target="_blank" class="w-8 h-8 flex items-center justify-center hover:text-primary transition-colors">
+<i class="ri-youtube-line text-xl"></i>
+</a>
+</div>
+</div>
+</div>
+</nav>
+<header id="hero" class="pt-24 pb-16">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h1 class="text-4xl font-bold text-white glow-text mb-4">Shubham Akalekar</h1>
+<h2 class="text-3xl font-bold shine-text mb-4">VIDEO EDITOR & GRAPHIC DESIGNER</h2>
+<p class="text-gray-300 mb-6 typing-text"></p>
+</div>
+<div class="grid md:grid-cols-2 gap-8 items-center">
+<div class="video-container rounded-lg overflow-hidden neon-border">
+<iframe src="https://www.youtube.com/embed/gdXw0Bv92ZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</header>
+<section class="py-16 gradient-bg">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 glow-text">WHAT I DO</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="p-6 bg-[#16213e] rounded-lg card-hover">
+<div class="w-16 h-16 flex items-center justify-center mb-4 text-primary">
+<i class="ri-movie-2-line text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Reels Editing</h3>
+<p class="text-gray-400">Creating engaging social media content with perfect timing and transitions</p>
+</div>
+<div class="p-6 bg-[#16213e] rounded-lg card-hover">
+<div class="w-16 h-16 flex items-center justify-center mb-4 text-primary">
+<i class="ri-image-edit-line text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Professional Thumbnail</h3>
+<p class="text-gray-400">Eye-catching thumbnails that drive engagement and clicks</p>
+</div>
+<div class="p-6 bg-[#16213e] rounded-lg card-hover">
+<div class="w-16 h-16 flex items-center justify-center mb-4 text-primary">
+<i class="ri-contrast-2-line text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold mb-2">Color Grading</h3>
+<p class="text-gray-400">Professional color correction and grading for cinematic look</p>
+</div>
+</div>
+</div>
+</section>
+<section id="portfolio" class="py-16">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 glow-text">REELS EDITING</h2>
+<div class="grid md:grid-cols-2 gap-8 mb-12">
+<div class="video-container rounded-lg overflow-hidden neon-border">
+<iframe src="https://www.youtube.com/embed/gdXw0Bv92ZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="video-container rounded-lg overflow-hidden neon-border">
+<iframe src="https://www.youtube.com/embed/yP04Of32Cxg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<h2 class="text-3xl font-bold text-center mb-12 glow-text">THUMBNAIL DESIGNS</h2>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="relative group card-hover">
+<img src="https://static.readdy.ai/image/f07dcbc7b4a768d4bfa7a966ba6969c0/e34347de9abfb5275f170b023ef3154c.png" alt="Thumbnail" class="rounded-lg w-full">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-white font-semibold">Stock Market Tutorial</span>
+</div>
+</div>
+<div class="relative group card-hover">
+<img src="https://static.readdy.ai/image/f07dcbc7b4a768d4bfa7a966ba6969c0/e25e419bb8360e7a62d7b729b10b63b3.png" alt="Thumbnail" class="rounded-lg w-full">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-white font-semibold">Silent Killers</span>
+</div>
+</div>
+<div class="relative group card-hover">
+<img src="https://static.readdy.ai/image/f07dcbc7b4a768d4bfa7a966ba6969c0/085fdc41c122b05c06c0d6a8a72ffaea.png" alt="Thumbnail" class="rounded-lg w-full">
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center">
+<span class="text-white font-semibold">100M Views</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 gradient-bg">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 glow-text">Skills & Tools</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-movie-2-line text-primary mr-3"></i>
+<span>DaVinci Resolve</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-image-edit-line text-primary mr-3"></i>
+<span>Photoshop</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-robot-line text-primary mr-3"></i>
+<span>AI Tools</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-contrast-2-line text-primary mr-3"></i>
+<span>Color Grading</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-font-size-2 text-primary mr-3"></i>
+<span>Typography</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-volume-up-line text-primary mr-3"></i>
+<span>Sound Design</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-animation-line text-primary mr-3"></i>
+<span>Motion Graphics</span>
+</div>
+<div class="p-4 bg-[#16213e] rounded-lg card-hover flex items-center">
+<i class="ri-transition-line text-primary mr-3"></i>
+<span>Video Transitions</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 bg-[#1a1a2e]">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold text-center mb-12 glow-text">Why Choose Me?</h2>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="p-6 bg-[#16213e] rounded-lg card-hover transform transition-all hover:scale-105">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center text-primary">
+<i class="ri-flashlight-line text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold ml-4">Fast Turnaround</h3>
+</div>
+<p class="text-gray-400">Get your videos delivered on time without compromising quality. I understand the importance of deadlines and ensure timely delivery while maintaining high standards.</p>
+</div>
+<div class="p-6 bg-[#16213e] rounded-lg card-hover transform transition-all hover:scale-105">
+<div class="flex items-center mb-4">
+<div class="w-12 h-12 flex items-center justify-center text-primary">
+<i class="ri-focus-3-line text-3xl"></i>
+</div>
+<h3 class="text-xl font-semibold ml-4">Client-focused Approach</h3>
+</div>
+<p class="text-gray-400">I prioritize your vision and tailor edits that meet your unique needs. Your satisfaction is my top priority, and I work closely with you to achieve the desired results.</p>
+</div>
+</div>
+</div>
+</section>
+<footer id="contact" class="py-16 bg-[#16213e]">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold mb-4 glow-text">Ready to Work Together?</h2>
+<p class="text-gray-300 mb-8 max-w-2xl mx-auto">Whether you need scroll-stopping reels, cinematic color grading or professional thumbnails, Contact Me for Work.</p>
+<div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-8">
+<a href="tel:8623871838" class="flex items-center text-primary hover:text-white transition-colors">
+<i class="ri-phone-line mr-2"></i>
++91 8623871838
+</a>
+<a href="mailto:akalekarshubhm@gmail.com" class="flex items-center text-primary hover:text-white transition-colors">
+<i class="ri-mail-line mr-2"></i>
+akalekarshubhm@gmail.com
+</a>
+<a href="https://www.instagram.com/shubham.edits07" class="flex items-center text-primary hover:text-white transition-colors">
+<i class="ri-instagram-line mr-2"></i>
+@shubham.edits07
+</a>
+<a href="https://www.youtube.com/@shubh_videoeditor" class="flex items-center text-primary hover:text-white transition-colors">
+<i class="ri-youtube-line mr-2"></i>
+@shubh_videoeditor
+</a>
+</div>
+<p class="text-gray-400">&copy; 2025 Shubham Akalekar. All rights reserved.</p>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const text = "Crafting compelling visual stories through expert video editing";
+const typingText = document.querySelector('.typing-text');
+let i = 0;
+function typeWriter() {
+if (i < text.length) {
+typingText.textContent += text.charAt(i);
+i++;
+setTimeout(typeWriter, 50);
+}
+}
+typeWriter();
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+if(this.getAttribute('href').startsWith('#')) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if(targetElement) {
+targetElement.scrollIntoView({
+behavior: 'smooth'
+});
+}
+}
+});
+});
+});
+</script>
 </body>
 </html>
